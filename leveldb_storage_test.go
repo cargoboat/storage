@@ -30,6 +30,12 @@ func TestLevelDBStorage(t *testing.T) {
 	} else {
 		t.Logf("get allValue:%s", allValue)
 	}
+	allValue, err = store.GetAllByPrefix("test")
+	if err != nil {
+		t.Fatal(err)
+	} else {
+		t.Logf("get GetAllByPrefix:%s", allValue)
+	}
 
 	err = store.Delete(testKey)
 	if err != nil {
